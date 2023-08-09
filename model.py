@@ -17,9 +17,9 @@ if choice=='1':
     df1=pd.read_html(data)
     table_a=df1[15]
     # tOH => Have the standings of Home
-    tOH=df1[41].iloc[:,[1,2,3]]
+    tOH=df1[38].iloc[:,[1,2,3]]
     # tOA => Have the standings of away
-    tOA=df1[42].iloc[:,[1,2,3]]
+    tOA=df1[39].iloc[:,[1,2,3]]
 if choice=='2':
     url=requests.get("https://www.soccerstats.com/latest.asp?league=england#")
     teams_no=20
