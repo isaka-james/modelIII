@@ -17,8 +17,7 @@
 #### I don't do Gambing I made this as a part of entertainment.
 #### I don't advice anyone to use this snippet to Gambling or anything related to Gambling.
 
-## If you have issue you're welcome
-### Made by [MrNkolima]( 'https://twitter.com/isack_nkolima' )
+
 
 
 
