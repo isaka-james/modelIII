@@ -73,7 +73,7 @@ class display:
     # And the HOME and AWAY table.
     # The reason is that the Teams are not,
     # Proper oriented from the scrapted page.
-    def tableOfModel_iii(data,name,teamA,teamB):
+    def TableOfModel(self,data,name,teamA,teamB):
         print("")
         print("            MODEL III ")
         if data[1]>0.5:
@@ -122,22 +122,22 @@ class display:
         print(f"     Winner = {nameOfWinner}")
         print("")
         
-    def teamsListMain(soap):
+    def teamsListMain(self,soap):
         theList=dict(soap[1])
         for i in range(teams_no):
             print(f"      {i+1}. {theList[i+1]}")
-    def teamsListHome(soap):
+    def teamsListHome(self,soap):
         theList=dict(soap[1])
         init=2
         for i in range(teams_no):
             print(f"      {i+1}. {theList[init+i]}")
-    def teamsListAway(soap):
+    def teamsListAway(self,soap):
         theList=dict(soap[1])
         init=2
         for i in range(teams_no):
             print(f"      {i+1}. {theList[init+i]}")
         
-    def tableOfModel_ii(table,teamA,teamB,status):
+    def tableOfModel_ii(self,table,teamA,teamB,status):
         nameOfA=teamA["normals"]["team_name"]
         nameOfB=teamB["normals"]["team_name"]
         sum=table[1]+table[2]+table[3]+table[4]+table[5]+table[6]
@@ -168,7 +168,7 @@ class display:
 
         
 class test:
-    def convertToInt(x):
+    def convertToInt(self,x):
         try:
             y=int(x)
         except:
@@ -181,14 +181,14 @@ class test:
 class algorithm:
     def __init__(self,soap,choices):
         self.soap,self.choices=soap,choices
-    def getProbability_iii(data):
+    def getProbability_iii(self,data):
         sum=data[1]+data[2]+data[4]
         ppg_r=data[1]
         kufunga_r=data[2]
         ratio_r=data[4]
         dict={1:ppg_r,2:kufunga_r,3:ratio_r,4:sum}
         return dict
-    def extractDataMain(soap,choices):
+    def extractDataMain(self,soap,choices):
         dataPurified=soap.iloc[choices]
         output1=dict(dataPurified)
         results={ "team_name": output1[1],
@@ -206,7 +206,7 @@ class algorithm:
                          "failed_to_score": output1[14]
         }
         return results
-    def extractDataHome(soap,choices):
+    def extractDataHome(self,soap,choices):
         soup=soap.iloc[choices+1]
         home=dict(soup)
         results={ "team_name": home[1],
@@ -214,7 +214,7 @@ class algorithm:
         }
         return results
         
-    def extractDataAway(soap,choices):
+    def extractDataAway(self,soap,choices):
         soup=soap.iloc[choices+1]
         away=dict(soup)
         results={ "team_name": away[1],
@@ -222,7 +222,7 @@ class algorithm:
         }
         return results
         
-    def check_ratios(data,tA_g,tB_g):
+    def check_ratios(self,data,tA_g,tB_g):
      ## The status (scrapted[5]) will be used to the model III +
       if data[1]>0:
          ppg= data[1]
@@ -271,7 +271,7 @@ class algorithm:
       return scrapted
 
 
-    def getProbability(abc,a,b,r):
+    def getProbability(self,abc,a,b,r):
       if abc[1]>1:
           ppg_prob=0.2
       elif abc[1]==0:
@@ -388,7 +388,7 @@ def main():
     
     # Interpretation of Model iii
     model_iii=algorithm.getProbability_iii(scrap_prob)
-    display.tableOfModel_iii(model_iii,teamA,teamA,teamB)
+    display.TableOfModel(model_iii,teamA,teamA,teamB)
           
     
     # Interpretation of Model ii
